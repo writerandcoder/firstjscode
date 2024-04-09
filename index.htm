@@ -1,0 +1,397 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Sir Gamblalot V1.0</TITLE>
+
+<SCRIPT language=JavaScript>
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+</SCRIPT>
+
+
+<SCRIPT language=JavaScript>
+
+
+<!--Sir Gamblalot script v1.0 -->
+
+<!--Image Sequence -->
+
+var adimages = new Array("Sir Gamblalot V1_0_files/sg1.gif", "Sir Gamblalot V1_0_files/sg2.gif", "Sir Gamblalot V1_0_files/sg3.gif", "Sir Gamblalot V1_0_files/sg4.gif", "Sir Gamblalot V1_0_files/sg5.gif", "Sir Gamblalot V1_0_files/sg6.gif", "Sir Gamblalot V1_0_files/sg7.gif", "Sir Gamblalot V1_0_files/sg8.gif", "Sir Gamblalot V1_0_files/sg9.gif", "Sir Gamblalot V1_0_files/sg91.gif", "Sir Gamblalot V1_0_files/sg92.gif", "Sir Gamblalot V1_0_files/sg92.gif", "Sir Gamblalot V1_0_files/sg93.gif", "Sir Gamblalot V1_0_files/sg94.gif", "Sir Gamblalot V1_0_files/sg94.gif", "Sir Gamblalot V1_0_files/sg93.gif")
+var thisad = 0
+var imgct = 15
+
+function cycle(){
+if(document.images){
+thisad++
+
+if(thisad == imgct){
+thisad = 0
+}
+document.sg.src=adimages[thisad]
+setTimeout("cycle()",1 * 1000)
+}}
+         
+<!-- random banner ad-->
+
+function rebanner() 
+{
+var graphicr = new Array ("Sir Gamblalot V1_0_files/b1.gif", "Sir Gamblalot V1_0_files/b2.gif", "Sir Gamblalot V1_0_files/b3.gif", "Sir Gamblalot V1_0_files/b4.gif", "Sir Gamblalot V1_0_files/b5.gif", "Sir Gamblalot V1_0_files/b6.gif", "Sir Gamblalot V1_0_files/b7.gif", "Sir Gamblalot V1_0_files/b8.gif", "Sir Gamblalot V1_0_files/b9.gif", "Sir Gamblalot V1_0_files/b91.gif", "Sir Gamblalot V1_0_files/b92.gif", "Sir Gamblalot V1_0_files/b93.gif", "Sir Gamblalot V1_0_files/b94.gif", "Sir Gamblalot V1_0_files/b95.gif", "Sir Gamblalot V1_0_files/b96.gif", "Sir Gamblalot V1_0_files/b97.gif", "Sir Gamblalot V1_0_files/b98.gif", "Sir Gamblalot V1_0_files/b99.gif", "Sir Gamblalot V1_0_files/b991.gif", "Sir Gamblalot V1_0_files/b992.gif", "Sir Gamblalot V1_0_files/b993.gif", "Sir Gamblalot V1_0_files/b994.gif", "Sir Gamblalot V1_0_files/b995.gif", "Sir Gamblalot V1_0_files/b996.gif", "Sir Gamblalot V1_0_files/b997.gif", "Sir Gamblalot V1_0_files/b998.gif", "b999.gif") 
+var graphran = Math.round(Math.random() *26)
+document.ranban.src=graphicr[graphran]
+}
+
+<!--main variables -->
+var credit= 0;
+var balance= 0;
+var bet=100;
+
+
+
+<!--add credit function -->
+
+function disp(amount)
+{
+if (credit > -4800 + amount)
+{
+total= credit - amount;
+credit= total;
+document.disp.credit.value= credit;
+total2= balance + amount;
+balance= total2;
+document.disp.balance.value= balance;
+document.disp.bet.value= bet;
+}
+else   
+{
+document.creditgif.src='Sir Gamblalot V1_0_files/calertyouhavereachedyourcreditlimit.gif';
+<!--you have insufficiant credit, please see you bank manager -->
+}
+}
+
+<!--add to bet function -->
+
+function addbet(amount)
+{
+if (balance >= bet + amount)
+{
+total = bet + amount;
+bet = total;
+document.disp.bet.value= bet;
+}
+else
+{
+document.creditgif.src='Sir Gamblalot V1_0_files/calertyourbethasexceededyourbalance.gif';
+<!--bet exceeds ballance -->
+}
+} 
+
+<!--double bet function -->
+
+function doubleit(amount)
+{
+if (balance >= bet * amount)
+{
+total = bet * amount;
+bet = total;
+document.disp.bet.value= bet;
+}
+else
+{
+document.creditgif.src='Sir Gamblalot V1_0_files/calertyourbethasexceededyourbalance.gif';
+<!--bet exceeds ballance -->
+}
+}
+
+<!--clear bet function -->
+
+function clearit(amount)
+{
+total= 0;
+bet= total;
+document.disp.bet.value= bet; 
+}
+
+/*
+----------------[Probables]----21
+
+1 1   2    1
+1 2   3    2
+1 3   4    3
+1 4   5    4
+1 5   6    5
+1 6   7    6
+2 2   4    7
+2 3   5    8
+2 4   6    9
+2 5   7    10
+2 6   8    11
+3 3   6    12
+3 4   7    13
+3 5   8    14
+3 6   9    15
+4 4   8    16
+4 5   9    17
+4 6   10   18
+5 5   10   19
+5 6   11   20
+6 6   12   21
+
+---------------[2-4]----4/21
+1 1   2    1
+1 2   3    2
+1 3   4    3
+2 2   4    7
+
+---------------[5-8]----11/21
+1 4   5    4
+1 5   6    5
+1 6   7    6
+2 3   5    8
+2 4   6    9
+2 5   7    10
+2 6   8    11
+3 3   6    12
+3 4   7    13
+3 5   8    14
+4 4   8    16
+
+---------------[9-12]----6/21---2/7
+3 6   9    15
+4 5   9    17
+4 6   10   18
+5 5   10   19
+5 6   11   20
+6 6   12   21
+
+*/
+<!--roll dice function -->
+
+function spin(amount,amoun,amou,amo)
+{
+if (balance == 0)
+{
+document.creditgif.src='Sir Gamblalot V1_0_files/calertplaceyourbet.gif';
+}
+else if (bet > balance || bet == 0)
+{
+sum2= bet * 0;
+bet= sum2;
+document.disp.bet.value= bet;
+document.creditgif.src='Sir Gamblalot V1_0_files/calertplaceyourbet.gif';
+<!--Please re-establish your bet-->
+}
+
+else
+{
+var dice1= new Array(6)
+dice1[0]="Sir Gamblalot V1_0_files/d1l.gif";
+dice1[1]="Sir Gamblalot V1_0_files/d2l.gif";
+dice1[2]="Sir Gamblalot V1_0_files/d3l.gif";
+dice1[3]="Sir Gamblalot V1_0_files/d4l.gif";
+dice1[4]="Sir Gamblalot V1_0_files/d5l.gif";
+dice1[5]="Sir Gamblalot V1_0_files/d6l.gif";
+var ran_d1= Math.floor(Math.random()*6);
+
+var dc1= dice1[ran_d1];
+document.dd1.src = dc1;
+
+var dice2= new Array(6)
+dice2[0]="Sir Gamblalot V1_0_files/d1r.gif";
+dice2[1]="Sir Gamblalot V1_0_files/d2r.gif";
+dice2[2]="Sir Gamblalot V1_0_files/d3r.gif";
+dice2[3]="Sir Gamblalot V1_0_files/d4r.gif";
+dice2[4]="Sir Gamblalot V1_0_files/d5r.gif";
+dice2[5]="Sir Gamblalot V1_0_files/d6r.gif";
+
+var ran_d2= Math.floor(Math.random()*6);
+
+var dc2= dice2[ran_d2];
+document.dd2.src = dc2;
+
+setTimeout(30 * 1000)
+
+totaldice = ran_d1 + ran_d2 + 2;
+
+if (totaldice == amount || totaldice == amoun || totaldice == amou || totaldice == amo )
+{
+bet2=bet * 2
+winning= bet2 + balance;
+balance= winning;
+document.disp.balance.value= balance;
+document.creditgif.src='Sir Gamblalot V1_0_files/calert7.gif';
+}
+else 
+{
+sum= balance - bet;
+balance= sum;
+document.disp.balance.value= balance;
+document.creditgif.src='Sir Gamblalot V1_0_files/calert6.gif';
+}
+}
+} 
+ 
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000 bgColor="#428600" leftMargin=0 topMargin=0 marginheight="0" 
+marginwidth="0" onLoad="rebanner(), cycle()">
+<div align="center">
+<DIV id=Layer1 
+style="Z-INDEX: 1; LEFT: -3px; WIDTH: 200px; POSITION: absolute; TOP: -3px; HEIGHT: 115px">
+<TABLE cellSpacing=0 cellPadding=0 width=800 border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=1 src="Sir Gamblalot V1_0_files/spacer.gif" width=1 
+      border=0></TD>
+    <TD><IMG height=1 src="Sir Gamblalot V1_0_files/spacer.gif" width=94 
+      border=0></TD>
+    <TD><IMG height=1 src="Sir Gamblalot V1_0_files/spacer.gif" width=23 
+      border=0></TD>
+    <TD><IMG height=1 src="Sir Gamblalot V1_0_files/spacer.gif" width=45 
+      border=0></TD>
+    <TD><IMG height=1 src="Sir Gamblalot V1_0_files/spacer.gif" width=65 
+      border=0></TD>
+    <TD><IMG height=1 src="Sir Gamblalot V1_0_files/spacer.gif" width=2 
+      border=0></TD>
+    <TD><IMG height=1 src="Sir Gamblalot V1_0_files/spacer.gif" width=1 
+      border=0></TD>
+    <TD><IMG height=1 src="Sir Gamblalot V1_0_files/spacer.gif" width=70 
+      border=0></TD>
+    <TD><IMG height=1 src="Sir Gamblalot V1_0_files/spacer.gif" width=131 
+      border=0></TD>
+    <TD><IMG height=1 src="Sir Gamblalot V1_0_files/spacer.gif" width=2 
+      border=0></TD>
+    <TD><IMG height=1 src="Sir Gamblalot V1_0_files/spacer.gif" width=58 
+      border=0></TD>
+    <TD><IMG height=1 src="Sir Gamblalot V1_0_files/spacer.gif" width=62 
+      border=0></TD>
+    <TD><IMG height=1 src="Sir Gamblalot V1_0_files/spacer.gif" width=58 
+      border=0></TD>
+    <TD><IMG height=1 src="Sir Gamblalot V1_0_files/spacer.gif" width=188 
+      border=0></TD>
+    <TD><IMG height=1 src="Sir Gamblalot V1_0_files/spacer.gif" width=1 
+      border=0></TD></TR>
+  <TR>
+    <TD colSpan=14><IMG height=79 
+      src="Sir Gamblalot V1_0_files/mainpage_r1_c1.gif" width=800 border=0 
+      name=ranban></TD>
+    <TD><IMG height=79 src="Sir Gamblalot V1_0_files/spacer.gif" width=1 
+      border=0></TD></TR>
+  <TR>
+    <TD colSpan=2><IMG height=85 
+      src="Sir Gamblalot V1_0_files/mainpage_r2_c1.gif" width=95 border=0 
+      name=mainpage_r2_c1></TD>
+    <TD colSpan=2><IMG height=85 
+      src="Sir Gamblalot V1_0_files/dl.gif" width=68 border=0 
+      name=dd1></TD>
+    <TD><IMG height=85 src="Sir Gamblalot V1_0_files/dr.gif" 
+      width=65 border=0 name=dd2></TD>
+    <TD colSpan=9><IMG height=85 
+      src="Sir Gamblalot V1_0_files/mainpage_r2_c6.gif" width=572 border=0 
+      name=mainpage_r2_c6></TD>
+    <TD><IMG height=85 src="Sir Gamblalot V1_0_files/spacer.gif" width=1 
+      border=0></TD></TR>
+  <TR>
+    <TD colSpan=14><IMG height=16 
+      src="Sir Gamblalot V1_0_files/mainpage_r3_c1.gif" width=800 border=0 
+      name=mainpage_r3_c1></TD>
+    <TD><IMG height=16 src="Sir Gamblalot V1_0_files/spacer.gif" width=1 
+      border=0></TD></TR>
+  <TR>
+      <TD colSpan=14 rowSpan=3><IMG height=144 
+      src="Sir Gamblalot V1_0_files/creditgif.gif" width=800 
+      useMap=#mainpage_r4_c1Map border=0 name=creditgif href="#"></TD>
+    <TD><IMG height=83 src="Sir Gamblalot V1_0_files/spacer.gif" width=1 
+      border=0></TD></TR>
+  <TR>
+    <TD><IMG height=25 src="Sir Gamblalot V1_0_files/spacer.gif" width=1 
+      border=0></TD></TR>
+  <TR>
+    <TD><IMG height=36 src="Sir Gamblalot V1_0_files/spacer.gif" width=1 
+      border=0></TD></TR>
+  <TR>
+    <TD rowSpan=5><IMG height=276 
+      src="Sir Gamblalot V1_0_files/mainpage_r7_c1.gif" width=1 border=0 
+      name=mainpage_r7_c1></TD>
+    <TD colSpan=2 rowSpan=3><A 
+      href="javascript:addbet(100)"><IMG 
+      height=124 src="Sir Gamblalot V1_0_files/mainpage_r7_c2.gif" width=117 
+      border=0 name=mainpage_r7_c2></A></TD>
+    <TD colSpan=3 rowSpan=3><A href="javascript:addbet(200)"><IMG height=124 
+      src="Sir Gamblalot V1_0_files/mainpage_r7_c4.gif" width=112 border=0 
+      name=mainpage_r7_c4></A></TD>
+    <TD><IMG height=41 src="Sir Gamblalot V1_0_files/mainpage_r7_c7.gif" 
+      width=1 border=0 name=mainpage_r7_c7></TD>
+    <TD colSpan=7><IMG height=41 
+      src="Sir Gamblalot V1_0_files/mainpage_r7_c8.gif" width=569 border=0 
+      name=mainpage_r7_c8></TD>
+    <TD><IMG height=41 src="Sir Gamblalot V1_0_files/spacer.gif" width=1 
+      border=0></TD></TR>
+  <TR>
+    <TD colSpan=3><IMG height=55 
+      src="Sir Gamblalot V1_0_files/mainpage_r8_c7.gif" width=202 
+      useMap=#mainpage_r8_c7Map border=0 name=mainpage_r8_c7></TD>
+        <TD colSpan=2><A href="javascript:spin(1,2,3,4)" onMouseOver="document.ran1.src='Sir Gamblalot V1_0_files/2-4glow.gif'" onMouseOut="document.ran1.src='Sir Gamblalot V1_0_files/2-4.gif'"><IMG height=55 
+      src="Sir%20Gamblalot%20V1_0_files/2-4.gif" width=62 border=0 
+      name=ran1></A></TD>
+    <TD><A href="javascript:spin(5,6,7,8)" onMouseOver="document.ran2.src='Sir Gamblalot V1_0_files/5-8glow.gif'" onMouseOut="document.ran2.src='Sir Gamblalot V1_0_files/5-8.gif'"><IMG height=55 
+      src="Sir Gamblalot V1_0_files/5-8.gif" width=62 border=0 
+      name=ran2></A></TD>
+    <TD><A href="javascript:spin(9,10,11,12)" onMouseOver="document.ran3.src='Sir Gamblalot V1_0_files/9-12glow.gif'" onMouseOut="document.ran3.src='Sir Gamblalot V1_0_files/9-12.gif'"><IMG height=55 
+      src="Sir Gamblalot V1_0_files/9-12.gif" width=58 border=0 
+      name=ran3></A></TD>
+        <TD><IMG height=55 src="Sir Gamblalot V1_0_files/mainpage_r8_c14.gif" 
+      width=186 border=0 name=mainpage_r8_c14></TD>
+    <TD><IMG height=55 src="Sir Gamblalot V1_0_files/spacer.gif" width=1 
+      border=0></TD></TR>
+  <TR>
+    <TD><IMG height=28 src="Sir Gamblalot V1_0_files/mainpage_r9_c7.gif" 
+      width=1 border=0 name=mainpage_r9_c7></TD>
+    <TD colSpan=7><IMG height=28 
+      src="Sir Gamblalot V1_0_files/mainpage_r9_c8.gif" width=569 border=0 
+      name=mainpage_r9_c8></TD>
+    <TD><IMG height=28 src="Sir Gamblalot V1_0_files/spacer.gif" width=1 
+      border=0></TD></TR>
+  <TR>
+    <TD colSpan=13><IMG height=32 
+      src="Sir Gamblalot V1_0_files/sg1.gif" width=799 border=0 
+      name=sg></TD>
+    <TD><IMG height=32 src="Sir Gamblalot V1_0_files/spacer.gif" width=1 
+      border=0></TD></TR>
+  <TR>
+    <TD colSpan=13><IMG height=120 
+      src="Sir Gamblalot V1_0_files/mainpage_r11_c2.gif" width=799 border=0 
+      name=mainpage_r11_c2></TD>
+    <TD><IMG height=120 src="Sir Gamblalot V1_0_files/spacer.gif" width=1 
+      border=0></TD></TR></TBODY></TABLE></DIV></div>
+<FORM name=disp >
+<DIV id=Layer2 
+style="Z-INDEX: 2; LEFT: 591px; WIDTH: 53px; POSITION: absolute; TOP: 119px; HEIGHT: 33px"><INPUT 
+size=11 name=credit> </DIV>
+<DIV id=Layer3 
+style="Z-INDEX: 3; LEFT: 661px; WIDTH: 53px; POSITION: absolute; TOP: 379px; HEIGHT: 33px"><INPUT 
+size=7 name=bet> </DIV>
+<DIV id=Layer4 
+style="Z-INDEX: 4; LEFT: 351px; WIDTH: 53px; POSITION: absolute; TOP: 119px; HEIGHT: 33px"><INPUT 
+size=11 name=balance> </DIV></FORM><MAP name=mainpage_r8_c7Map><AREA shape=RECT 
+  coords=31,8,110,50 href="javascript:doubleit(2)"><AREA shape=RECT 
+  coords=120,7,196,53 href="javascript:clearit()"></MAP>
+<MAP 
+name=mainpage_r4_c1Map> 
+  <AREA shape=CIRCLE coords=717,65,58 
+  href="javascript:disp(1000)">
+  <AREA shape=CIRCLE coords=588,68,58 
+  href="javascript:disp(900)">
+  <AREA shape=CIRCLE coords=458,68,58 
+  href="javascript:disp(800)">
+  <AREA shape=CIRCLE coords=329,67,58 
+  href="javascript:disp(700)">
+  <AREA shape=CIRCLE coords=196,66,58 
+  href="javascript:disp(600)">
+  <AREA shape=CIRCLE coords=67,63,58 
+  href="javascript:disp(500)">
+</MAP></BODY></HTML>
