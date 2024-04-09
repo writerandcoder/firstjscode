@@ -1,0 +1,2 @@
+# firstjscode
+Betting Game
